@@ -5,7 +5,7 @@ def ingresa_ip(opcion):
     # ingreso de la ip.
     str_ip = input('\n\tIngrese la IP: ')
     # dividir la ip.
-    lista_ip = list(str_ip.split(sep = '.'))
+    lista_ip = list(str_ip)
     
     valida_ip = valida(lista_ip)
 

@@ -3,7 +3,8 @@ class ValidarIp():
     """docstring for ValidarIp
         
         requiere: Una lista con los cuatro octetos en formato string
-        
+                  puede ser ['255.255.255.2555'] o 
+                            ['255','255','255','255']
         retorna: Una lista con:
                     pos[0] valor voleano dependiendo si la ip 
                     ingresada es correcta,
@@ -19,8 +20,12 @@ class ValidarIp():
 
         lista_ip_int = []
         final_list = []
+
+        # verificar el numero de elementos dentro de la lista.
+        if len(self.str_ip) == 1:
+            self.str_ip = self.str_ip.split(sep = '.')
         # verificar que sean cuatro elementos en la lista.
-        if len(self.str_ip) == 4:
+        elif len(self.str_ip) == 4:
             pass
         else:
             final_list.append(False)

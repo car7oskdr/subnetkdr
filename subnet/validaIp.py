@@ -18,23 +18,33 @@ class ValidarIp():
     def __init__(self, str_ip):
         self.str_ip = str_ip
 
+    def validation(self):
+        
         lista_ip_int = []
         final_list = []
 
         # verificar el numero de elementos dentro de la lista.
         if len(self.str_ip) == 1:
-            self.str_ip = self.str_ip.split(sep = '.')
+            print("subnet/valida.py/1")
+            pass
         # verificar que sean cuatro elementos en la lista.
         elif len(self.str_ip) == 4:
-            pass
+            print(self.str_ip)
+            self.str_ip = self.str_ip.split(sep = '.')
         else:
+            print("yes, here subnet/valida.py/2")
             final_list.append(False)
             final_list.append(1)
-            
+            print(final_list)
         # conversión de valores de la lista a enteros.
+        print("yes, here subnet/valida.py/3")
         try:
+            print("yes, here subnet/valida.py/4")
+            print(self.str_ip)
             for x in range(len(self.str_ip)):
-                lista_ip_int.append(int(self.str_ip))
+                print(x)
+                lista_ip_int.append(int(self.str_ip[x]))
+            print("yes, here subnet/valida.py/5")
         except ValueError:
             final_list.append(False)
             final_list.append(2)
@@ -49,5 +59,7 @@ class ValidarIp():
     
         final_list.append(True)
         final_list.append(lista_ip_int)
+        print(final_list)
+        print("yes, here subnet/valida.py/6")
 
         return final_list

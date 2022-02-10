@@ -16,7 +16,7 @@ class ErrorsValidarIp():
         elif self.error == 2:
             var = "No puedes ingresar caracteres"
         else:
-            var = "Los octetos no pueden ser negativos, ni mayores ",
-                  "a 256."
+            var = ("Los octetos no pueden ser negativos, ni mayores ",
+                   "a 256.")
             
         return var

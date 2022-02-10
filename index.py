@@ -1,17 +1,20 @@
 from subnet.validaIp import ValidarIp as valida
+from subnet.mask import KnowMask as mask
 from errors.validaIp import ErrorsValidarIp as e_valida
 
 def ingresa_ip(opcion):
     # ingreso de la ip.
-    str_ip = input('\n\tIngrese la IP: ')
-    # dividir la ip.
-    lista_ip = list(str_ip)
-    
+    lista_ip = list(input('\n\tIngresa la IP: '))
+    #print(lista_ip)
     valida_ip = valida(lista_ip)
+    val = valida_ip.validation()
+    print("yes, here index.py/1")
 
-    if valida_ip[0]:
+    if val[0]:
         if opcion == 1:
-            pass
+            #print(mask(valida_ip))
+            mascara = mask(val)
+            print(mascara)
         else:
             pass
     else:
@@ -45,7 +48,7 @@ while True:
         else:
             print('=' * 85)
             print(f'\n\t El numero ingresado {opc} esta fuera',
-                  'del rango de la lista, elige otra opción.\n\n')
+                   'del rango de la lista, elige otra opción.\n\n')
             print('=' * 85)
 
     except (ValueError, TypeError):

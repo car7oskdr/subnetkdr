@@ -1,24 +1,27 @@
 from subnet.validaIp import ValidarIp as valida
-from subnet.mask import KnowMask as mask
+from subnet.mask import KnowMask as mask_class
 from errors.validaIp import ErrorsValidarIp as e_valida
 
 def ingresa_ip(opcion):
     # ingreso de la ip.
-    lista_ip = list(input('\n\tIngresa la IP: '))
-    #print(lista_ip)
-    valida_ip = valida(lista_ip)
+    lista_ip = input('\n\tIngresa la IP: ')
+    str_ip = lista_ip.split(sep = '.')
+    valida_ip = valida(str_ip)
     val = valida_ip.validation()
-    print("yes, here index.py/1")
 
     if val[0]:
         if opcion == 1:
-            #print(mask(valida_ip))
-            mascara = mask(val)
-            print(mascara)
+            mascara = mask_class(val[1])
+            maskc = mascara.mask()
+            print(maskc)
+
         else:
             pass
+
     else:
-        e_valida(valida_ip[1])
+        error = e_valida(val[1])
+        fin_error = error.errors_val()
+        print(fin_error)
 
 while True:
     #menu de subnetting
@@ -36,9 +39,7 @@ while True:
             print('\n\t\tHas ingresado un cero o un numero negativo')
             print('\t\tElegir un numero entero de la lista.\n')
             print('=' * 85)
-        elif opc == 1:
-            ingresa_ip(opc)
-        elif opc == 2:
+        elif opc == 1 or opc == 2:
             ingresa_ip(opc)
         elif opc == 3:
             print('=' * 85)
